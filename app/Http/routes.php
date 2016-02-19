@@ -11,8 +11,18 @@
 |
 */
 
+Route::pattern('name', '[a-zA-Z0-9]+');
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('test', function () {
+	return redirect('/');
+});
+
+Route::get('hello/{name?}', function ($name = 'world') {
+	return '<h1>Hello, '.ucfirst($name).'.</h1>';
 });
 
 /*
