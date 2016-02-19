@@ -14,7 +14,11 @@ Route::pattern('name', '[a-zA-Z0-9]+');
 */
 
 Route::get('/', function() {
-	return view('welcome');
+	return view('index');
+});
+
+Route::get('origin', function() {
+	return view('default.welcome');
 });
 
 /*
@@ -30,11 +34,11 @@ Route::get('/', function() {
 
 Route::group(['middleware' => ['web']], function() {
 
-	Route::get('test', function() {
-		return redirect('/');
-	});
-
 	Route::group(['prefix' => 'posts'], function() {
+
+		Route::get('/', function() {
+			return redirect('/');
+		});
 
 		Route::get('hello/{name?}', [
 			'as' => 'posts.hello',
