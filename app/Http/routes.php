@@ -14,7 +14,7 @@ Route::pattern('name', '[a-zA-Z0-9]+');
 */
 
 Route::get('/', function() {
-	return view('index');
+	return redirect('origin');
 });
 
 Route::get('origin', function() {
@@ -36,9 +36,25 @@ Route::group(['middleware' => ['web']], function() {
 
 	Route::group(['prefix' => 'posts'], function() {
 
-		Route::get('/', function() {
-			return redirect('/');
-		});
+		Route::get('index', ['as' => 'posts.index', function() {
+			return view('index');
+		}]);
+
+		Route::get('about', ['as' => 'posts.about', function() {
+			return view('about');
+		}]);
+
+		Route::get('services', ['as' => 'posts.services', function() {
+			return view('services');
+		}]);
+
+		Route::get('portfolio', ['as' => 'posts.portfolio', function() {
+			return view('portfolio');
+		}]);
+
+		Route::get('contact', ['as' => 'posts.contact', function() {
+			return view('contact');
+		}]);
 
 		Route::get('hello/{name?}', [
 			'as' => 'posts.hello',
