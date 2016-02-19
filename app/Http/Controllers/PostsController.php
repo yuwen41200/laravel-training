@@ -88,7 +88,7 @@ class PostsController extends Controller
 	/**
 	 * Hello, World.
 	 *
-	 * @param string  $name
+	 * @param  string  $name
 	 * @return string
 	 */
 	public function hello($name = 'world')
