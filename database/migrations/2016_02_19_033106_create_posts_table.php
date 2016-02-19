@@ -14,6 +14,10 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title', 100);
+            $table->text('content')->nullable();
+            $table->boolean('is_featured')->default(false);
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('posts');
+        Schema::dropIfExists('posts');
     }
 }
