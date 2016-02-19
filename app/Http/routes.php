@@ -36,6 +36,10 @@ Route::group(['middleware' => ['web']], function() {
 
 	Route::group(['prefix' => 'posts'], function() {
 
+		Route::get('/', ['as' => 'posts.default', function() {
+			return redirect('posts/index');
+		}]);
+
 		Route::get('index', ['as' => 'posts.index', function() {
 			return view('index');
 		}]);
