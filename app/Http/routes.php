@@ -1,5 +1,7 @@
 <?php
 
+Route::pattern('name', '[a-zA-Z0-9]+');
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -11,18 +13,8 @@
 |
 */
 
-Route::pattern('name', '[a-zA-Z0-9]+');
-
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('test', function () {
-	return redirect('/');
-});
-
-Route::get('hello/{name?}', function ($name = 'world') {
-	return '<h1>Hello, '.ucfirst($name).'.</h1>';
 });
 
 /*
@@ -37,5 +29,13 @@ Route::get('hello/{name?}', function ($name = 'world') {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
+	Route::get('test', function () {
+		return redirect('/');
+	});
+
+	Route::get('hello/{name?}', ['as' => 'hello', function ($name = 'world') {
+		return '<h1>Hello, '.ucfirst($name).'.</h1>';
+	}]);
+
 });

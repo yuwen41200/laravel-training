@@ -39,6 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+                <a href="<?php echo route('hello'); ?>">Try Hello Route !!</a>
             </div>
         </div>
     </body>
