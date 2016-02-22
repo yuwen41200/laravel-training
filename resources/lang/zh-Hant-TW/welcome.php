@@ -2,7 +2,7 @@
 
 return [
 
-	'title' => 'Laravel 第五版',
-	'link'  => '說嗨！',
+	'title' => '拉塞維爾第五版',
+	'link'  => '說嗨！！！',
 
 ];
