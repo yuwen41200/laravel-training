@@ -61,7 +61,8 @@ class PostsController extends Controller {
 
 	public function delete() {
 		$post = \App\Post::find(6);
-		if ($post) $post->delete();
+		if ($post)
+			$post->delete();
 	}
 
 	public function deleteMore() {
@@ -70,6 +71,14 @@ class PostsController extends Controller {
 
 	public function sayHello($name = 'world') {
 		return '<center><h1>Hello, '.ucfirst($name).'.</h1></center>';
+	}
+
+	public function testRelation() {
+		$user = \App\User::find(6);
+		echo "<ol>\n";
+		foreach ($user->posts as $post)
+			echo "<li>".$post->title."</li>\n";
+		echo "</ol>\n";
 	}
 
 }

@@ -111,6 +111,11 @@ Route::group(['middleware' => ['web']], function() {
 			'uses' => 'PostsController@sayHello'
 		]);
 
+		Route::get('relation', [
+			'as' => 'posts.testRelation',
+			'uses' => 'PostsController@testRelation'
+		]);
+
 	});
 
 });
