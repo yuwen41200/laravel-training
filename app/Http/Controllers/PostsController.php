@@ -3,30 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PostsController extends Controller
-{
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function index()
-	{
-		//
+class PostsController extends Controller {
+
+	public function index() {
+		$posts = \App\Post::all();
+		dd($posts);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function create()
-	{
-		//
+	public function indexMore() {
+		$posts = \App\Post::where('id', '<', 5)
+			->orWhere('is_featured', 1)
+			->orderBy('updated_at', 'DESC')
+			->get();
+		dd($posts);
+	}
+
+	public function create() {
+		\App\Post::create([
+			'title' => 'My New Title',
+			'content' => 'My New Content',
+			'user_id' => 7,
+		]);
+	}
+
+	public function createMore() {
+		$post = new \App\Post();
+		$post->title = 'My Newest Title';
+		$post->content = 'My Newest Content';
+		$post->user_id = 8;
+		$post->save();
 	}
 
 	/**

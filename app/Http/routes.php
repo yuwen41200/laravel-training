@@ -13,13 +13,33 @@ Route::pattern('name', '[a-zA-Z0-9]+');
 |
 */
 
-Route::get('/', function() {
+Route::get('/', ['as' => 'default', function() {
 	return redirect('origin');
-});
+}]);
 
-Route::get('origin', function() {
+Route::get('origin', ['as' => 'origin', function() {
 	return view('default.welcome');
-});
+}]);
+
+Route::get('index', ['as' => 'index', function() {
+	return view('index');
+}]);
+
+Route::get('about', ['as' => 'about', function() {
+	return view('about');
+}]);
+
+Route::get('services', ['as' => 'services', function() {
+	return view('services');
+}]);
+
+Route::get('portfolio', ['as' => 'portfolio', function() {
+	return view('portfolio');
+}]);
+
+Route::get('contact', ['as' => 'contact', function() {
+	return view('contact');
+}]);
 
 /*
 |--------------------------------------------------------------------------
@@ -40,25 +60,25 @@ Route::group(['middleware' => ['web']], function() {
 			return redirect('posts/index');
 		}]);
 
-		Route::get('index', ['as' => 'posts.index', function() {
-			return view('index');
-		}]);
+		Route::get('index', [
+			'as' => 'posts.index',
+			'uses' => 'PostsController@index'
+		]);
 
-		Route::get('about', ['as' => 'posts.about', function() {
-			return view('about');
-		}]);
+		Route::get('index/more', [
+			'as' => 'posts.indexMore',
+			'uses' => 'PostsController@indexMore'
+		]);
 
-		Route::get('services', ['as' => 'posts.services', function() {
-			return view('services');
-		}]);
+		Route::get('create', [
+			'as' => 'posts.create',
+			'uses' => 'PostsController@create'
+		]);
 
-		Route::get('portfolio', ['as' => 'posts.portfolio', function() {
-			return view('portfolio');
-		}]);
-
-		Route::get('contact', ['as' => 'posts.contact', function() {
-			return view('contact');
-		}]);
+		Route::get('create/more', [
+			'as' => 'posts.createMore',
+			'uses' => 'PostsController@createMore'
+		]);
 
 		Route::get('hello/{name?}', [
 			'as' => 'posts.hello',
