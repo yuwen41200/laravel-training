@@ -8,22 +8,22 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand page-scroll" href="{{ route('posts.index') }}">Start Bootstrap</a>
+			<a class="navbar-brand page-scroll" href="{{ route('index') }}">Start Bootstrap</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a class="page-scroll" href="{{ route('posts.about') }}">About</a>
+					<a class="page-scroll" href="{{ route('about') }}">About</a>
 				</li>
 				<li>
-					<a class="page-scroll" href="{{ route('posts.services') }}">Services</a>
+					<a class="page-scroll" href="{{ route('services') }}">Services</a>
 				</li>
 				<li>
-					<a class="page-scroll" href="{{ route('posts.portfolio') }}">Portfolio</a>
+					<a class="page-scroll" href="{{ route('portfolio') }}">Portfolio</a>
 				</li>
 				<li>
-					<a class="page-scroll" href="{{ route('posts.contact') }}">Contact</a>
+					<a class="page-scroll" href="{{ route('contact') }}">Contact</a>
 				</li>
 			</ul>
 		</div>

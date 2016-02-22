@@ -56,18 +56,14 @@ Route::group(['middleware' => ['web']], function() {
 
 	Route::group(['prefix' => 'posts'], function() {
 
-		Route::get('/', ['as' => 'posts.default', function() {
-			return redirect('posts/index');
-		}]);
+		Route::get('/', [
+			'as' => 'posts.default',
+			function() { return redirect('posts/index'); }
+		]);
 
 		Route::get('index', [
 			'as' => 'posts.index',
 			'uses' => 'PostsController@index'
-		]);
-
-		Route::get('index/more', [
-			'as' => 'posts.indexMore',
-			'uses' => 'PostsController@indexMore'
 		]);
 
 		Route::get('create', [
@@ -80,9 +76,39 @@ Route::group(['middleware' => ['web']], function() {
 			'uses' => 'PostsController@createMore'
 		]);
 
+		Route::get('read', [
+			'as' => 'posts.read',
+			'uses' => 'PostsController@read'
+		]);
+
+		Route::get('read/more', [
+			'as' => 'posts.readMore',
+			'uses' => 'PostsController@readMore'
+		]);
+
+		Route::get('update', [
+			'as' => 'posts.update',
+			'uses' => 'PostsController@update'
+		]);
+
+		Route::get('update/more', [
+			'as' => 'posts.updateMore',
+			'uses' => 'PostsController@updateMore'
+		]);
+
+		Route::get('delete', [
+			'as' => 'posts.delete',
+			'uses' => 'PostsController@delete'
+		]);
+
+		Route::get('delete/more', [
+			'as' => 'posts.deleteMore',
+			'uses' => 'PostsController@deleteMore'
+		]);
+
 		Route::get('hello/{name?}', [
-			'as' => 'posts.hello',
-			'uses' => 'PostsController@hello'
+			'as' => 'posts.sayHello',
+			'uses' => 'PostsController@sayHello'
 		]);
 
 	});

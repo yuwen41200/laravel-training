@@ -13,19 +13,11 @@ class PostsController extends Controller {
 		dd($posts);
 	}
 
-	public function indexMore() {
-		$posts = \App\Post::where('id', '<', 5)
-			->orWhere('is_featured', 1)
-			->orderBy('updated_at', 'DESC')
-			->get();
-		dd($posts);
-	}
-
 	public function create() {
 		\App\Post::create([
 			'title' => 'My New Title',
 			'content' => 'My New Content',
-			'user_id' => 7,
+			'user_id' => 5,
 		]);
 	}
 
@@ -33,74 +25,51 @@ class PostsController extends Controller {
 		$post = new \App\Post();
 		$post->title = 'My Newest Title';
 		$post->content = 'My Newest Content';
+		$post->user_id = 6;
+		$post->save();
+	}
+
+	public function read() {
+		$post = \App\Post::find(5);
+		dd($post);
+	}
+
+	public function readMore() {
+		$posts = \App\Post::where('id', '<', 5)
+			->orWhere('is_featured', 1)
+			->orderBy('updated_at', 'DESC')
+			->get();
+		dd($posts);
+	}
+
+	public function update() {
+		$post = \App\Post::find(5);
+		$post->update([
+			'title' => 'My Updated Title',
+			'content' => 'My Updated Content',
+			'user_id' => 7,
+		]);
+	}
+
+	public function updateMore() {
+		$post = \App\Post::find(5);
+		$post->title = 'My Latest Updated Title';
+		$post->content = 'My Latest Updated Content';
 		$post->user_id = 8;
 		$post->save();
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
-	public function store(Request $request)
-	{
-		//
+	public function delete() {
+		$post = \App\Post::find(6);
+		if ($post) $post->delete();
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show($id)
-	{
-		//
+	public function deleteMore() {
+		\App\Post::destroy(11, 12, 13);
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit($id)
-	{
-		//
+	public function sayHello($name = 'world') {
+		return '<center><h1>Hello, '.ucfirst($name).'.</h1></center>';
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function update(Request $request, $id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
-	/**
-	 * Hello, World.
-	 *
-	 * @param  string  $name
-	 * @return string
-	 */
-	public function hello($name = 'world')
-	{
-		return '<h1>Hello, '.ucfirst($name).'.</h1>';
-	}
 }
