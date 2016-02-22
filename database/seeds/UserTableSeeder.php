@@ -11,11 +11,12 @@ class UserTableSeeder extends Seeder
 	 */
 	public function run()
 	{
+		$faker = \Faker\Factory::create('zh_TW');
 		foreach (range(1, 20) as $number) {
 			\App\User::create([
-				'name' => 'Name '.$number,
-				'email' => 'Email '.$number,
-				'password' => 'Password '.$number
+				'name' => $faker->userName,
+				'email' => $faker->email,
+				'password' => $faker->password
 			]);
 		}
 	}
