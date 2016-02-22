@@ -4,13 +4,18 @@ Route::pattern('name', '[a-zA-Z]+');
 
 Route::pattern('id', '[0-9]+');
 
-Route::get('/', ['as' => 'default', function() {
-	return redirect('origin');
-}]);
+Route::get('/', [
+	'as' => 'default',
+	function() { return redirect('origin'); }
+]);
 
-Route::get('origin', ['as' => 'origin', function() {
-	return view('default.welcome');
-}]);
+Route::get('origin/{locale?}', [
+	'as' => 'origin',
+	function($locale = 'zh-Hant-TW') {
+		App::setLocale($locale);
+		return view('default.welcome');
+	}
+]);
 
 Route::group(['middleware' => ['web']], function() {
 

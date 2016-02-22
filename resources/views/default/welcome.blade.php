@@ -32,8 +32,8 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
-				<a href="<?php echo route('posts.sayHello'); ?>">Say Hello !!!</a>
+				<div class="title">{{ trans('welcome.title') }}</div>
+				<a href="{{ route('posts.sayHello') }}">{{ trans('welcome.link') }}</a>
 			</div>
 		</div>
 	</body>
