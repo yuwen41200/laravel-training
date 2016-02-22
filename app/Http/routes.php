@@ -80,6 +80,11 @@ Route::group(['middleware' => ['web']], function() {
 
 	Route::group(['prefix' => 'real'], function() {
 
+		Route::get('/', [
+			'as' => 'real.default',
+			function() { return redirect('real/main'); }
+		]);
+
 		Route::get('main', [
 			'as' => 'real.main',
 			'uses' => 'RealPostsController@main'
@@ -95,7 +100,7 @@ Route::group(['middleware' => ['web']], function() {
 			'uses' => 'RealPostsController@create'
 		]);
 
-		Route::get('{id?}', [
+		Route::get('{id}', [
 			'as' => 'real.show',
 			'uses' => 'RealPostsController@show'
 		]);

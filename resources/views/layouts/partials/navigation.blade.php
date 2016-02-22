@@ -14,7 +14,6 @@
 				<li><a class="page-scroll" href="{{ route('real.main') }}">Main</a></li>
 				<li><a class="page-scroll" href="{{ route('real.index') }}">Index</a></li>
 				<li><a class="page-scroll" href="{{ route('real.create') }}">Create</a></li>
-				<li><a class="page-scroll" href="{{ route('real.show') }}">Show</a></li>
 			</ul>
 		</div>
 	</div>

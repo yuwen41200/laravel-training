@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Main')
+@section('title', 'Index')
 @section('content')
 <section class="bg-primary" id="about">
 	<div class="container">

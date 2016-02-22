@@ -1,9 +1,9 @@
 @extends('layouts.master')
-@section('title', 'Main')
+@section('title', 'Edit')
 @section('content')
 <section class="bg-primary" id="about">
 	<div class="container">
-		@foreach($posts as $post)
+		@foreach(range(1, 10) as $post)
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center">
 				<h2 class="section-heading">{{ $post->title }}</h2>

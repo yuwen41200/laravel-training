@@ -16,4 +16,29 @@ class RealPostsController extends Controller {
 		return view('main', $data);
 	}
 
+	public function index() {
+		$posts = \App\Post::orderBy('created_at', 'DESC')
+			->get();
+		$data = compact('posts');
+		return view('index', $data);
+	}
+
+	public function create() {
+		return view('create');
+	}
+
+	public function show($id) {
+		$post = \App\Post::findOrFail($id);
+		$data = compact('post');
+		return view('show', $data);
+	}
+
+	public function edit($id) {
+		return view('edit');
+	}
+
+	public function destroy($id) {
+		return view('destroy');
+	}
+
 }
