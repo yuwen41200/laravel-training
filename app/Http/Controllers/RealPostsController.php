@@ -45,6 +45,7 @@ class RealPostsController extends Controller {
 	}
 
 	public function edit($id) {
+		$post = \App\Post::find($id);
 		return view('edit');
 	}
 

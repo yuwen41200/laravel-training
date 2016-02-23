@@ -11,7 +11,7 @@ Route::get('/', [
 
 Route::get('origin/{locale?}', [
 	'as' => 'origin',
-	function($locale = 'zh-Hant-TW') {
+	function($locale = 'zh-TW') {
 		App::setLocale($locale);
 		return view('default.welcome');
 	}
