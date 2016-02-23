@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title', 'Create')
+@section('title', 'Edit')
 @section('content')
-<section class="bg-primary" id="about">
+<section class="bg-primary">
 	<div class="container">
 		<div class="row text-center" style="color: black">
 			{!! Form::model($post, ['route' => ['real.update', $post->id], 'method' => 'PATCH']) !!}

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Main')
 @section('content')
-<section class="bg-primary" id="about">
+<section class="bg-primary">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center" style="color: black">

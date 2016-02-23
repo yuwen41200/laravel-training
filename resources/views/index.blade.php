@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Index')
 @section('content')
-<section class="bg-primary" id="about">
+<section class="bg-primary">
 	<div class="container">
 		@foreach($posts as $post)
 		<div class="row">
