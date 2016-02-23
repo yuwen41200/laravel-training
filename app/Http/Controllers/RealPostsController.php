@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Http\Requests;
+use App\Http\Requests\RealPostRequest;
 use App\Http\Controllers\Controller;
 
 class RealPostsController extends Controller {
@@ -26,6 +26,11 @@ class RealPostsController extends Controller {
 
 	public function create() {
 		return view('create');
+	}
+
+	public function store(RealPostRequest $request) {
+		$post = \App\Post::create($request->all());
+		return redirect()->route('real.show', $post->id);
 	}
 
 	public function show($id) {

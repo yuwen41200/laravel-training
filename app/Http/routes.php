@@ -105,6 +105,11 @@ Route::group(['middleware' => ['web']], function() {
 			'uses' => 'RealPostsController@create'
 		]);
 
+		Route::post('store', [
+			'as' => 'real.store',
+			'uses' => 'RealPostsController@store'
+		]);
+
 		Route::get('{id}', [
 			'as' => 'real.show',
 			'uses' => 'RealPostsController@show'
