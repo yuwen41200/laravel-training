@@ -40,7 +40,8 @@ class RealPostsController extends Controller {
 		catch (ModelNotFoundException $e) {
 			$post = \App\Post::all()->random();
 		}
-		$data = compact('post');
+		$user = \App\User::find($post->user_id);
+		$data = compact('post', 'user');
 		return view('show', $data);
 	}
 

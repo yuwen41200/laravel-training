@@ -10,7 +10,7 @@
 				<p class="text-faded">{!! $post->content !!}</p>
 				<p class="text-faded">Posted at: {{ $post->created_at->diffForHumans() }}<br>
 				Last Modified: {{ $post->updated_at->diffForHumans() }}<br>
-				Author Id: {{ $post->user_id }}</p>
+				Author: {{ $user->name }}</p>
 				<a href="{{ route('real.edit', $post->id) }}" class="btn btn-default btn-xl">Edit</a>&nbsp;
 				{!! Form::open(['route' => ['real.destroy', $post->id], 'method' => 'DELETE', 'style' => 'display: inline;']) !!}
 				{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xl']) !!}
