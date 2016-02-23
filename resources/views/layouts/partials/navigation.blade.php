@@ -11,8 +11,8 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="page-scroll" href="{{ route('real.main') }}">Main</a></li>
 				<li><a class="page-scroll" href="{{ route('real.index') }}">Index</a></li>
+				<li><a class="page-scroll" href="{{ route('real.show', 0) }}">Show</a></li>
 				<li><a class="page-scroll" href="{{ route('real.create') }}">Create</a></li>
 			</ul>
 		</div>

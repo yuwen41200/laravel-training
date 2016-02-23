@@ -8,8 +8,9 @@
 				<h2 class="section-heading">{{ $post->title }}</h2>
 				<hr class="light">
 				<p class="text-faded">{!! $post->content !!}</p>
-				<p class="text-faded">By {{ $post->user_id }} at {{ $post->created_at }}.<br>
-				Last Modified: {{ $post->updated_at }}</p>
+				<p class="text-faded">Posted at: {{ $post->created_at->diffForHumans() }}<br>
+				Last Modified: {{ $post->updated_at->diffForHumans() }}<br>
+				Author Id: {{ $post->user_id }}</p>
 			</div>
 		</div>
 	</div>

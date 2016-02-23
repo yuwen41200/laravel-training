@@ -16,6 +16,9 @@
 			<br>
 		</div>
 		@endforeach
+		<div class="row text-center">
+			{!! $posts->render() !!}
+		</div>
 	</div>
 </section>
 @endsection

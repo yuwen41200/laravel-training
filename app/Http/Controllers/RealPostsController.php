@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +19,7 @@ class RealPostsController extends Controller {
 
 	public function index() {
 		$posts = \App\Post::orderBy('created_at', 'DESC')
-			->get();
+			->paginate(5);
 		$data = compact('posts');
 		return view('index', $data);
 	}
@@ -28,7 +29,12 @@ class RealPostsController extends Controller {
 	}
 
 	public function show($id) {
-		$post = \App\Post::findOrFail($id);
+		try {
+			$post = \App\Post::findOrFail($id);
+		}
+		catch (ModelNotFoundException $e) {
+			$post = \App\Post::all()->random();
+		}
 		$data = compact('post');
 		return view('show', $data);
 	}
