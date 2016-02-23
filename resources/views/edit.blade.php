@@ -9,11 +9,11 @@
 			{!! Form::text('title') !!}
 			{!! '<br>' !!}
 			{!! Form::label('textarea', 'Please input some content: ') !!}
-			{!! Form::textarea('content') !!}
+			{!! Form::textarea('content', strip_tags($post->content)) !!}
 			{!! '<br>' !!}
 			{!! Form::label('radio', 'Is it a featured article? ') !!}
-			{!! Form::radio('is_featured', 1) !!}&nbsp;Yes&nbsp;
-			{!! Form::radio('is_featured', 0) !!}&nbsp;No&nbsp;
+			{!! Form::radio('is_featured', true) !!}&nbsp;Yes&nbsp;
+			{!! Form::radio('is_featured', false) !!}&nbsp;No&nbsp;
 			{!! Form::hidden('user_id') !!}
 			{!! '<br>' !!}
 			{!! Form::submit('Update') !!}

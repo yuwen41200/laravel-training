@@ -151,7 +151,7 @@ return [
 		/*
 		 * Third Party Service Providers...
 		 */
-		// Recca0120\LaravelTracy\ServiceProvider::class,
+		Recca0120\LaravelTracy\ServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
 
 		/*
