@@ -12,9 +12,9 @@
 			{!! Form::textarea('content') !!}
 			{!! '<br>' !!}
 			{!! Form::label('radio', 'Is it a featured article? ') !!}
-			{!! Form::radio('is_featured', '1') !!}&nbsp;Yes&nbsp;
-			{!! Form::radio('is_featured', '0') !!}&nbsp;No&nbsp;
-			{!! Form::hidden('user_id', '1') !!}
+			{!! Form::radio('is_featured', 1) !!}&nbsp;Yes&nbsp;
+			{!! Form::radio('is_featured', 0) !!}&nbsp;No&nbsp;
+			{!! Form::hidden('user_id', 1) !!}
 			{!! '<br>' !!}
 			{!! Form::submit('Post') !!}
 			{!! Form::close() !!}

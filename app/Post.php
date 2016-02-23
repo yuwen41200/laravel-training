@@ -16,4 +16,8 @@ class Post extends Model {
 		return $this->belongsTo(\App\User::class);
 	}
 
+	public function getContentAttribute($value) {
+		return nl2br($value);
+	}
+
 }
