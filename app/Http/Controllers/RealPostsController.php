@@ -46,7 +46,14 @@ class RealPostsController extends Controller {
 
 	public function edit($id) {
 		$post = \App\Post::find($id);
-		return view('edit');
+		$data = compact('post');
+		return view('edit', $data);
+	}
+
+	public function update(RealPostRequest $request, $id) {
+		$post = \App\Post::find($id);
+		$post->update($request->all());
+		return redirect()->route('real.show', $post->id);
 	}
 
 	public function destroy($id) {

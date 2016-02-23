@@ -120,6 +120,11 @@ Route::group(['middleware' => ['web']], function() {
 			'uses' => 'RealPostsController@edit'
 		]);
 
+		Route::patch('{id}/update', [
+			'as' => 'real.update',
+			'uses' => 'RealPostsController@update'
+		]);
+
 		Route::get('{id}/destroy', [
 			'as' => 'real.destroy',
 			'uses' => 'RealPostsController@destroy'
