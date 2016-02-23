@@ -46,18 +46,29 @@ class RealPostsController extends Controller {
 
 	public function edit($id) {
 		$post = \App\Post::find($id);
+		if (is_null($post))
+			return redirect()->route('real.main')
+				->with('message', 'Invalid Id !!!');
 		$data = compact('post');
 		return view('edit', $data);
 	}
 
 	public function update(RealPostRequest $request, $id) {
 		$post = \App\Post::find($id);
+		if (is_null($post))
+			return redirect()->route('real.main')
+				->with('message', 'Invalid Id !!!');
 		$post->update($request->all());
 		return redirect()->route('real.show', $post->id);
 	}
 
 	public function destroy($id) {
-		return view('destroy');
+		$post = \App\Post::find($id);
+		if (is_null($post))
+			return redirect()->route('real.main')
+				->with('message', 'Invalid Id !!!');
+		$post->delete();
+		return redirect()->route('real.index');
 	}
 
 }

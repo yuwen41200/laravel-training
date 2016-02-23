@@ -3,6 +3,13 @@
 @section('content')
 <section class="bg-primary" id="about">
 	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center" style="color: black">
+				<p class="bg-danger">
+					{{ session('message') }}
+				</p>
+			</div>
+		</div>
 		@foreach($posts as $post)
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center">

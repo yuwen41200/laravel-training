@@ -125,7 +125,7 @@ Route::group(['middleware' => ['web']], function() {
 			'uses' => 'RealPostsController@update'
 		]);
 
-		Route::get('{id}/destroy', [
+		Route::delete('{id}/destroy', [
 			'as' => 'real.destroy',
 			'uses' => 'RealPostsController@destroy'
 		]);
